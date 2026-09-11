@@ -22,7 +22,7 @@ Power: $\displaystyle p = \frac{dw}{dt} = \frac{dw}{dq}\cdot\frac{dq}{dt} = v\cd
 $\displaystyle p = i^2R = \frac{v^2}{R}$ \\ 
 Energy: $\displaystyle w(t) = \int_{t_0}^{t}p(t)dt = \int_{t_0}^{t}v(t)i(t)dt $\\ 
 Resitance: $\displaystyle R=\rho\frac{\ell}{A} $ \\ 
-Parallel resistance: $\displaystyle R_{eq} = \frac{R_1 R_2}{R_1 + R_2} $ \\
+Parallel resistance: $\displaystyle R_{eq} = R_1 \Vert R_2 = \frac{R_1 R_2}{R_1 + R_2} $ \\
 {\bf KCL}: $\displaystyle \sum_{j=1}^{n} i_j(t) = 0 $ \hspace{0.5cm}
 {\bf KVL}: $\displaystyle \sum_{j=1}^{n} v_j(t) = 0 $ \\
 % \include{circuit1.tex}
@@ -75,5 +75,66 @@ $\displaystyle i_1 = i_{in}\frac{R_2}{R_1 + R_2}$
 \vspace{0.5cm}
 $\displaystyle i_2 = i_{in}\frac{R_1}{R_1 + R_2}$
 \end{minipage}
+
+\begin{minipage}{0.45\linewidth}
+	{\centering\bf Mesh Analysis}
+	\begin{itemize}
+		\item Solve unknown mesh currents using {\bf KVL}
+		\item Define mesh currents as $i_n$
+		\item Use {\bf KVL} to express all as mesh currents
+		\item Solve for mesh currents
+		\item {\bf Use when}: Series elements, voltage sources, supermeshes, $n_i < n_v$
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+	{\centering\bf Nodal Analysis}
+	\begin{itemize}
+		\item Solve unknown node voltages using {\bf KCL}
+		\item Select ground node
+		\item Give nodes name $v_n$
+		\item Use {\bf KCL} at $v_n$ nodes
+		\item Solve for node voltages
+		\item {\bf Use when}: Parallel elements, current sources, supernodes, $n_v < n_i$
+	\end{itemize}
+\end{minipage}
+
+{\bf Superposition}\\
+\begin{circuitikz}[american]
+		% Paths, nodes and wires:
+	\draw (2, 6) to[V, o-o] (2, 4);
+	\draw[line width=1pt, -latex] (2.667, 5) -- (3.333, 5);
+	\draw (3.667, 6) to[short, o-o] (3.667, 4);
+\end{circuitikz}
+\hspace{2cm}
+\begin{circuitikz}[american]
+		% Paths, nodes and wires:
+	\draw (5, 4) to[I, o-o] (5, 6);
+	\draw (6.667, 6) to[short, o-o] (6.667, 5.333);
+	\draw (6.667, 4.667) to[short, o-o] (6.667, 4);
+	\draw[line width=1pt, -latex] (5.667, 5) -- (6.333, 5);
+\end{circuitikz}
+
+{\bf Source transformation}
+
+\begin{tabular}{ccc}
+	\begin{circuitikz}[american,baseline=(current bounding box.center)]
+		% Paths, nodes and wires:
+		\draw (2, 7) to[V, l_={$V_s$}] (2, 5);
+		\draw (2, 7) to[R, l_={$R$}] (4, 7);
+		\draw (2, 5) to[short] (4, 5);
+		\draw (4, 7) to[open, o-o] (4, 5);
+	\end{circuitikz}
+	&
+		$\displaystyle \Leftrightarrow i_s = \frac{v_s}{R} \Leftrightarrow$
+	&
+	\begin{circuitikz}[american,baseline=(current bounding box.center)]
+		% Paths, nodes and wires:
+		\draw (2, 5) to[I, l={$i_s$}] (2, 7);
+		\draw (3, 7) to[R, l={$R$}] (3, 5);
+		\draw (2, 7) to[short] (4, 7);
+		\draw (2, 5) to[short] (4, 5);
+		\draw (4, 7) to[open, o-o] (4, 5);
+	\end{circuitikz}
+\end{tabular}
 
 \end{document}
