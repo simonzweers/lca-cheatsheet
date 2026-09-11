@@ -101,17 +101,19 @@ $\displaystyle i_2 = i_{in}\frac{R_1}{R_1 + R_2}$
 {\bf Superposition}\\
 \begin{circuitikz}[american]
 		% Paths, nodes and wires:
-	\draw (2, 6) to[V, o-o] (2, 4);
+	\draw (2, 6) to[V] (2, 4);
 	\draw[line width=1pt, -latex] (2.667, 5) -- (3.333, 5);
 	\draw (3.667, 6) to[short, o-o] (3.667, 4);
+	\draw (2, 6) to [open, o-o] (2,4);
 \end{circuitikz}
 \hspace{2cm}
 \begin{circuitikz}[american]
 		% Paths, nodes and wires:
-	\draw (5, 4) to[I, o-o] (5, 6);
+	\draw (5, 4) to[I] (5, 6);
 	\draw (6.667, 6) to[short, o-o] (6.667, 5.333);
 	\draw (6.667, 4.667) to[short, o-o] (6.667, 4);
 	\draw[line width=1pt, -latex] (5.667, 5) -- (6.333, 5);
+	\draw (5, 4) to[open, o-o]  (5, 6);
 \end{circuitikz}
 
 {\bf Source transformation}
