@@ -1,4 +1,4 @@
-\documentclass{tudelft}
+\documentclass[twocolumn]{tudelft}
 \geometry{margin=0.5mm}
 \usepackage{circuitikz}
 
@@ -7,32 +7,13 @@
 
 % ---------- DOCUMENT ----------
 \begin{document}
-\twocolumn
-
-% \title{
-%     \includesvg[width=0.75\linewidth]{TU_Delft_Logo} \\[2em]
-%     \thecourse: Sample circuits
-% }
-% \author{Simon Zweers}
-% \date{\today}
-% \degree{Electrical Engineering}
-% \faculty{Electrical Engineering, Mathematics \& Computer Science}
-
-% \maketitle
-% \thispagestyle{fancy}
-% \vspace{1em}
-% \hrule
-% \vspace{1em}
-
-\newpage
-
-% TOC bs
 \setcounter{secnumdepth}{0}
-% \tableofcontents
-% \newpage
-
-% Main Text
-Cheatsheet \\
+\twocolumn[
+\begin{center}
+	{\huge \uppercase{Linear Circuits A \hspace{02cm} Cheatsheet}}\\
+\end{center}
+\vspace{0.2cm}
+]
 Current/charge: $\displaystyle i(t) \triangleq \frac{dq}{dt} \iff q=\int_{t_0}^{t}idt + q(t_0)$ \\ 
 Voltage: $\displaystyle v_{ab} \triangleq \frac{dw}{dq} $ \\
 Power: $\displaystyle p = \frac{dw}{dt} = \frac{dw}{dq}\cdot\frac{dq}{dt} = v\cdot i $ \\
