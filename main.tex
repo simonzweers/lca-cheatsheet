@@ -39,16 +39,21 @@ Power: $\displaystyle p = \frac{dw}{dt} = \frac{dw}{dq}\cdot\frac{dq}{dt} = v\cd
 $\displaystyle p = i^2R = \frac{v^2}{R}$ \\ 
 Energy: $\displaystyle w(t) = \int_{t_0}^{t}p(t)dt = \int_{t_0}^{t}v(t)i(t)dt $\\ 
 Resitance: $\displaystyle R=\rho\frac{\ell}{A} $ \\ 
-Parallel resistance: $\displaystyle R_{eq} = {R_1 R_2 \over R_1 + R_2} $ \\
+Parallel resistance: $\displaystyle R_{eq} = \frac{R_1 R_2}{R_1 + R_2} $ \\
+{\bf KCL}: $\displaystyle \sum_{j=1}^{n} i_j(t) = 0 $ \hspace{0.5cm}
+{\bf KVL}: $\displaystyle \sum_{j=1}^{n} v_j(t) = 0 $ \\
 % \include{circuit1.tex}
 % \include{circuit2.tex}
 % \include{circuit3.tex}
 % \include{code1.tex}
 
-Voltage division:\\
+% VOLTAGE DIVISION
+\begin{center}
+	\bf Voltage division:
+\end{center}
 \begin{minipage}{0.5\linewidth}
 \begin{circuitikz}[american]
-	\draw (0,4) to [V, l=$V_{in}$] (0,0)
+	\draw (0,4) to [V, l=$v_{in}$] (0,0)
 	-- (3,0)
 	to [R, l=$R_2$] (3,2)
 	to [R, l=$R_1$] (3,4)
@@ -59,7 +64,33 @@ Voltage division:\\
 \end{circuitikz}
 \end{minipage}\hfill
 \begin{minipage}{0.45\linewidth}
-$\displaystyle V_1 = V_{in}\frac{R_1}{R_1 + R_2}$
+$\displaystyle v_1 = v_{in}\frac{R_1}{R_1 + R_2}$
+
+\vspace{0.5cm}
+$\displaystyle v_2 = v_{in}\frac{R_2}{R_1 + R_2}$
+\end{minipage}
+
+%CURRENT DIVISION
+\begin{center}
+	\bf Current Division:
+\end{center}
+\begin{minipage}{0.5\linewidth}
+	\begin{circuitikz}[american]
+		\draw (0,0) to [I, l_=$i_{in}$] (0,3)
+		-- (2,3) to [R, l=$R_1$, i=$i_1$] (2,0) -- (0,0)
+		;
+		\draw (2,3) -- (4,3)
+		to [R, l_=$R_2$, i_=$i_2$] (4,0)
+		-- (2,0)
+		;
+	\end{circuitikz}
+
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+$\displaystyle i_1 = i_{in}\frac{R_2}{R_1 + R_2}$
+
+\vspace{0.5cm}
+$\displaystyle i_2 = i_{in}\frac{R_1}{R_1 + R_2}$
 \end{minipage}
 
 \end{document}
