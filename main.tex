@@ -1,11 +1,13 @@
 \documentclass{tudelft}
-\usepackage[legalpaper, landscape, margin=0.1in]{geometry}
+\geometry{margin=0.5mm}
+\usepackage{circuitikz}
 
 
 \newcommand{\thecourse}{Lineare circuits}
 
 % ---------- DOCUMENT ----------
 \begin{document}
+\twocolumn
 
 % \title{
 %     \includesvg[width=0.75\linewidth]{TU_Delft_Logo} \\[2em]
@@ -43,5 +45,21 @@ Parallel resistance: $\displaystyle R_{eq} = {R_1 R_2 \over R_1 + R_2} $ \\
 % \include{circuit3.tex}
 % \include{code1.tex}
 
+Voltage division:\\
+\begin{minipage}{0.5\linewidth}
+\begin{circuitikz}[american]
+	\draw (0,4) to [V, l=$V_{in}$] (0,0)
+	-- (3,0)
+	to [R, l=$R_2$] (3,2)
+	to [R, l=$R_1$] (3,4)
+	-- (0,4)
+	;
+	\draw (3.5, 4) to [open, v=$V_1$] (3.5,2) ;
+	\draw (3.5, 2) to [open, v=$V_2$] (3.5,0) ;
+\end{circuitikz}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+$\displaystyle V_1 = V_{in}\frac{R_1}{R_1 + R_2}$
+\end{minipage}
 
 \end{document}
