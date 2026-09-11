@@ -1,0 +1,47 @@
+\documentclass{tudelft}
+\usepackage[legalpaper, landscape, margin=0.1in]{geometry}
+
+
+\newcommand{\thecourse}{Lineare circuits}
+
+% ---------- DOCUMENT ----------
+\begin{document}
+
+% \title{
+%     \includesvg[width=0.75\linewidth]{TU_Delft_Logo} \\[2em]
+%     \thecourse: Sample circuits
+% }
+% \author{Simon Zweers}
+% \date{\today}
+% \degree{Electrical Engineering}
+% \faculty{Electrical Engineering, Mathematics \& Computer Science}
+
+% \maketitle
+% \thispagestyle{fancy}
+% \vspace{1em}
+% \hrule
+% \vspace{1em}
+
+\newpage
+
+% TOC bs
+\setcounter{secnumdepth}{0}
+% \tableofcontents
+% \newpage
+
+% Main Text
+Cheatsheet \\
+Current/charge: $\displaystyle i(t) \triangleq \frac{dq}{dt} \iff q=\int_{t_0}^{t}idt + q(t_0)$ \\ 
+Voltage: $\displaystyle v_{ab} \triangleq \frac{dw}{dq} $ \\
+Power: $\displaystyle p = \frac{dw}{dt} = \frac{dw}{dq}\cdot\frac{dq}{dt} = v\cdot i $ \\
+$\displaystyle p = i^2R = \frac{v^2}{R}$ \\ 
+Energy: $\displaystyle w(t) = \int_{t_0}^{t}p(t)dt = \int_{t_0}^{t}v(t)i(t)dt $\\ 
+Resitance: $\displaystyle R=\rho\frac{\ell}{A} $ \\ 
+Parallel resistance: $\displaystyle R_{eq} = {R_1 R_2 \over R_1 + R_2} $ \\
+% \include{circuit1.tex}
+% \include{circuit2.tex}
+% \include{circuit3.tex}
+% \include{code1.tex}
+
+
+\end{document}
