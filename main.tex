@@ -97,7 +97,18 @@ $\displaystyle i_2 = i_{in}\frac{R_1}{R_1 + R_2}$
 	\end{itemize}
 \end{minipage}
 
-TODO: Add supermesh example
+{\bf supermesh example}
+
+\begin{circuitikz}[american]
+	\draw (0, 0) to[R, l=$R_1$] (0, 2)
+	to[R, l=$R_2$] (2,2)
+	to[I, l=$i$] (2,0)
+	to (0, 0);
+	\draw (2,2) to[R,l=$R_3$] (4,2)
+	to[R, l=$R_4$] (4,0)
+	to (2,0);
+	\draw[blue, ->] (1.5,1) arc[start angle=0, end angle=-180, radius=0.4];
+\end{circuitikz}
 
 TODO: Add supernode example
 
