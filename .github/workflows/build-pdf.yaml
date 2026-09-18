@@ -1,0 +1,33 @@
+name: Build PDF
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          latexmk_shell_escape: true
+          extra_system_packages: "inkscape py3-pygments"
+
+      - name: Rename PDF with compile date
+        run: |
+          date_str="$(date +%d-%m-%Y)"
+          echo "PDF_NAME=lca-cheatsheet-${date_str}.pdf" >> "$GITHUB_ENV"
+          mv main.pdf "lca-cheatsheet-${date_str}.pdf"
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PDF_NAME }}
+          path: ${{ env.PDF_NAME }}
