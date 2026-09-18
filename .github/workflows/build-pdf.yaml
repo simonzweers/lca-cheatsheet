@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -24,6 +26,7 @@ jobs:
         run: |
           date_str="$(date +%d-%m-%Y)"
           echo "PDF_NAME=lca-cheatsheet-${date_str}.pdf" >> "$GITHUB_ENV"
+          echo "RELEASE_TAG=${date_str}-${GITHUB_SHA::7}" >> "$GITHUB_ENV"
           mv main.pdf "lca-cheatsheet-${date_str}.pdf"
 
       - name: Upload PDF artifact
@@ -31,3 +34,11 @@ jobs:
         with:
           name: ${{ env.PDF_NAME }}
           path: ${{ env.PDF_NAME }}
+
+      - name: Create release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.PDF_NAME }}
+          files: ${{ env.PDF_NAME }}
