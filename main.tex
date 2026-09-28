@@ -16,12 +16,12 @@
 \end{center}
 \vspace{0.2cm}
 ]
-Current/charge: $\displaystyle i(t) \triangleq \frac{dq}{dt} \iff q=\int_{t_0}^{t}idt + q(t_0)$ \\ 
-Voltage: $\displaystyle v_{ab} \triangleq \frac{dw}{dq} $ \\
-Power: $\displaystyle p = \frac{dw}{dt} = \frac{dw}{dq}\cdot\frac{dq}{dt} = v(t)\cdot i(t) = i^2R = \frac{v^2}{R} $ \\
-Energy: $\displaystyle w(t) = \int_{t_0}^{t}p(t)dt = \int_{t_0}^{t}v(t)i(t)dt $\\ 
-Resitance: $\displaystyle R=\rho\frac{\ell}{A} $ \\ 
-Parallel resistance: $\displaystyle R_{eq} = R_1 \Vert R_2 = \frac{R_1 R_2}{R_1 + R_2} $ \\
+\textit{Current/charge}: $\displaystyle i(t) \triangleq \frac{dq}{dt} \iff q=\int_{t_0}^{t}idt + q(t_0)$ \\ 
+\textit{Voltage}: $\displaystyle v_{ab} \triangleq \frac{dw}{dq} $ \\
+\textit{Power}: $\displaystyle p = \frac{dw}{dt} = \frac{dw}{dq}\cdot\frac{dq}{dt} = v(t)\cdot i(t) = i^2R = \frac{v^2}{R} $ \\
+\textit{Energy}: $\displaystyle w(t) = \int_{t_0}^{t}p(t)dt = \int_{t_0}^{t}v(t)i(t)dt $\\ 
+\textit{Resitance}: $\displaystyle R=\rho\frac{\ell}{A} $ \\ 
+\textit{Parallel resistance}: $\displaystyle R_{eq} = R_1 \Vert R_2 = \frac{R_1 R_2}{R_1 + R_2} $ \\
 {\bfseries KCL}: $\displaystyle \sum_{j=1}^{n} i_j(t) = 0 $ \hspace{0.5cm}
 {\bf KVL}: $\displaystyle \sum_{j=1}^{n} v_j(t) = 0 $ \\
 % \include{circuit1.tex}
@@ -114,9 +114,9 @@ $\displaystyle i_2 = i_{in}\frac{R_1}{R_1 + R_2}$
 	\node at (2.2,1.6) {$i$};
 \end{circuitikz}
 
-KVL $i_a$, $i_b$ $\to i_aR_1 + i_aR_2 + i_bR_3 + i_bR4 = 0$
+\textit{KVL} $i_a$, $i_b$ $\to i_aR_1 + i_aR_2 + i_bR_3 + i_bR4 = 0$
 
-constraint (KCL) $\to  i_a = i + i_b$
+\textit{constraint (KCL)} $\to  i_a = i + i_b$
 
 {\bf Superposition}\\
 \begin{circuitikz}[american]
@@ -188,17 +188,17 @@ or a current source ($I_{N}$) and the same resistor ($R_{Th}$).
 	\end{circuitikz}
 \end{tabular}
 
-For \textbf{Thevenin}: Calculate $V_{oc}$\\
-For \textbf{Norton}: Valculate $I_{sc}$
+For \textit{Thevenin}: Calculate $V_{oc}$\\
+For \textit{Norton}: Valculate $I_{sc}$
 
 Calculating $R_th$ and $V_{Th}$ / $I_{N}$: \\
 \textit{Only independant sources}: Disable sources \\ 
 \textit{Only dependant sources}: $V_{Th} \text{\&} I_{N} = 0$, Use test source at terminals \\
 \textit{Mixed sources}:
-\begin{cases}
+$\begin{cases}
 	\text{Test source} \to R_{Th} = \dfrac{V_o}{I_o}\\
 	\text{Calculate $V_{oc}$ \& $I_{sc}$} \to R_{Th} = \dfrac{V_{oc}}{I_{sc}}\\
-\end{cases}
+\end{cases}$
 
 \textit{Using test source}: Either connect $1V$ or $1A$ to terminals.
 
