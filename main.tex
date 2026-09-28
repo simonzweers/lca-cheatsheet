@@ -102,15 +102,21 @@ $\displaystyle i_2 = i_{in}\frac{R_1}{R_1 + R_2}$
 \begin{circuitikz}[american]
 	\draw (0, 0) to[R, l=$R_1$] (0, 2)
 	to[R, l=$R_2$] (2,2)
-	to[I, l=$i$] (2,0)
+	to[I] (2,0)
 	to (0, 0);
 	\draw (2,2) to[R,l=$R_3$] (4,2)
 	to[R, l=$R_4$] (4,0)
 	to (2,0);
-	\draw[blue, ->] (1.5,1) arc[start angle=0, end angle=-180, radius=0.4];
+	\draw[->] ([shift={(0:0.45)}]1,1) arc[start angle=0, end angle=-270, radius=0.45];
+	\draw[->] ([shift={(0:0.45)}]3,1) arc[start angle=0, end angle=-270, radius=0.45];
+	\node at (1,1) {$i_a$};
+	\node at (3,1) {$i_b$};
+	\node at (2.2,1.6) {$i$};
 \end{circuitikz}
 
-TODO: Add supernode example
+KVL $i_a$, $i_b$ $\to i_aR_1 + i_aR_2 + i_bR_3 + i_bR4 = 0$
+
+constraint (KCL) $\to  i_a = i + i_b$
 
 {\bf Superposition}\\
 \begin{circuitikz}[american]
@@ -152,5 +158,58 @@ TODO: Add supernode example
 		\draw (4, 7) to[open, o-o] (4, 5);
 	\end{circuitikz}
 \end{tabular}
+
+{\bfseries Thevenin \& Norton}
+
+Linear circuits can be simplified to a voltage source ($V_{Th}$) and a resistor ($R_{Th}$),
+or a current source ($I_{N}$) and the same resistor ($R_{Th}$).
+\begin{tabular}{ccccc}
+	\begin{circuitikz}[american,baseline=(current bounding box.center)]
+		% Paths, nodes and wires:
+		\draw (2, 5) to[I, l={$I_{N}$}] (2, 7);
+		\draw (3, 7) to[R, l={$R_{Th}$}] (3, 5);
+		\draw (2, 7) to[short] (5, 7);
+		\draw (2, 5) to[short] (5, 5);
+		\draw (5, 7) to[R, l={$R_L$}] (5, 5);
+		\draw (5, 7) to[open, o-o] (5, 5);
+	\end{circuitikz}
+	&
+		$\Leftrightarrow$
+	&
+	\begin{circuitikz}[american,baseline=(current bounding box.center)]
+		% Paths, nodes and wires:
+		\draw (0,0) to[V, invert, l={$V_{Th}$}] (0,1.5)
+		to[R, l={$R_{Th}$}] (0,3)
+		-- (1.5,3)
+		to[R, l={$R_L$}] (1.5,0)
+		-- (0,0)
+		;
+		\draw (1.5, 3) to [open, o-o] (1.5,0);
+	\end{circuitikz}
+\end{tabular}
+
+For \textbf{Thevenin}: Calculate $V_{oc}$\\
+For \textbf{Norton}: Valculate $I_{sc}$
+
+Calculating $R_th$ and $V_{Th}$ / $I_{N}$: \\
+\textit{Only independant sources}: Disable sources \\ 
+\textit{Only dependant sources}: $V_{Th} \text{\&} I_{N} = 0$, Use test source at terminals \\
+\textit{Mixed sources}:
+\begin{cases}
+	\text{Test source} \to R_{Th} = \dfrac{V_o}{I_o}\\
+	\text{Calculate $V_{oc}$ \& $I_{sc}$} \to R_{Th} = \dfrac{V_{oc}}{I_{sc}}\\
+\end{cases}
+
+\textit{Using test source}: Either connect $1V$ or $1A$ to terminals.
+
+
+\[
+	V_{oc} = V_{Th}, I_{sc} = I_N \therefore R_{Th} = \dfrac{V_{Th}}{I_{N}}
+\]
+
+\textbf{Maximum power transfer}
+\[
+	R_{Th} = R_L \therefore p_{max} = \frac{V_{Th}^2}{4R_{Th}}
+\]
 
 \end{document}
