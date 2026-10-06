@@ -212,4 +212,34 @@ $\begin{cases}
 	R_{Th} = R_L \therefore p_{max} = \frac{V_{Th}^2}{4R_{Th}}
 \]
 
+\textbf{Ideal Op-amp}
+
+Gain: $A \to \infty$\\ 
+Input resistance: $R_i \to \infty$ \\ 
+Output resistance: $R_o = 0$ \\
+
+\begin{center}
+\begin{circuitikz}[american, scale=0.8, transform shape]
+	% Op-amp outline
+	\draw[thick] (0,3) -- (6,0) -- (0,-3) -- cycle;
+	% Inputs and input resistance
+	\draw (-1,1.2) node[left]{$v_-$} to[short, o-] (1,1.2)
+		to[R, l_=$R_i$, v^<=$v_d$] (1,-1.2)
+		to[short, -o] (-1,-1.2) node[left]{$v_+$};
+	% Dependent source and output resistance
+	\draw (2.6,-1.6) node[ground]{} -- (2.6,-1.4);
+	\draw (2.6,0.0) to[cV, l=$Av_d$] (2.6,-1.4);
+	\draw (2.6,0.0) -- (2.6,0) to[R, l=$R_o$] (4.6,0)
+		to[short, -o] (7,0) node[right]{$v_o$};
+\end{circuitikz}
+\end{center}
+
+\textbf{Op-amp with Feedback}
+
+Open loop is always unstable \\
+$v_+ - v_- \downarrow 0 \implies v_o \downarrow 0 \bigvee -\infty < v_o < \infty $
+
+Zero-conditions valid \textit{only if there is feedback} \\
+$i_+ = 0, i_- = 0$ \hspace{1em} $v_+ = v_-$ \\
+
 \end{document}
