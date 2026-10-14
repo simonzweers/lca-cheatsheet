@@ -242,4 +242,31 @@ $v_+ - v_- \downarrow 0 \implies v_o \downarrow 0 \bigvee -\infty < v_o < \infty
 Zero-conditions valid \textit{only if there is feedback} \\
 $i_+ = 0, i_- = 0$ \hspace{1em} $v_+ = v_-$ \\
 
+\textbf{Capacitance \& Capacitors}
+
+$\displaystyle q=Cv$, $C$ in Farad ($F$) \\
+$\displaystyle C = \frac{\varepsilon A}{d} = \frac{\varepsilon_r\varepsilon_0A}{d}$ \\
+$\displaystyle i(t) = C\frac{dv(t)}{dt}$\\
+$\displaystyle v(t) = \frac1C \int_{-\infty}^{t}i(\tau)d\tau = v(t_0) + \frac1C \int_{t_0}^{t}i(\tau)d\tau  $ \\
+$\displaystyle w(t) = \int_{-\infty}^{t}p(\tau)d\tau = C \int_{v(-\infty)}^{v(t)}$\\
+In steady state: $\displaystyle \frac12 C v_C^2$
+
+\textbf{Inductance \& Inductors}
+
+$\displaystyle \Phi(t) = Li(t)$, $L$ in Henries ($H$) \\
+$\displaystyle L = \frac{\mu N^2 A}{l} = \frac{\mu_r \mu_0 N^2 A}{l} $ \\
+$\displaystyle v(t) = L\frac{di(t)}{dt} $ \\
+$\displaystyle i(t) = \frac1L\int_{-\infty}^{t} v(\tau)d\tau = i(t_0) + \frac1L \int_{t_0}^{t}v(\tau)d\tau$ \\
+$\displaystyle w(t) = \int_{-\infty}{t}p(\tau)d\tau = L\int_{i(-\infty)}^{i(t)}idi $ \\
+In steady state: $\displaystyle w(t) = \frac12 L i_L^2$ \\
+
+\begin{tabular}{ccc}
+	- & Parallel & Series \\
+	\hline
+	Capacitor & $\displaystyle C_{eq} = \sum_{k=1}^N C_K$ & $\displaystyle \frac{1}{C_{eq}} = \sum_{k=1}^{N} \frac{1}{C_{eq}}$\\
+	Inductor & $\displaystyle \frac{1}{L_{eq}} = \sum_{k=1}^{N} = \frac{1}{L_k}$ & $\displaystyle L_{eq} = \sum_{k=1}^N L_k$ \\
+
+	\hline
+\end{tabular}
+
 \end{document}
